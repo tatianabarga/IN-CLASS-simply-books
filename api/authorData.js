@@ -12,6 +12,7 @@ const getAuthors = (uid) => new Promise((resolve, reject) => {
     .then((response) => response.json())
     .then((data) => {
       if (data) {
+        console.log(data);
         resolve(Object.values(data));
       } else {
         resolve([]);
@@ -53,9 +54,9 @@ const deleteSingleAuthor = (firebaseKey) => new Promise((resolve, reject) => {
 const updateAuthor = () => {};
 
 // TODO: GET A SINGLE AUTHOR'S BOOKS
-// const getAuthorBooks = (firebaseKey) => {
+const getAuthorBooks = (firebaseKey) => {
 
-// };
+};
 
 const favoriteAuthors = (uid) => new Promise((resolve, reject) => {
   fetch(`${endpoint}/authors.json?orderBy="uid"&equalTo="${uid}"`, {
@@ -79,5 +80,5 @@ export {
   deleteSingleAuthor,
   updateAuthor,
   favoriteAuthors,
-  // getAuthorBooks,
+  getAuthorBooks,
 };
