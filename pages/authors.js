@@ -7,10 +7,17 @@ import AuthorCard from '../components/AuthorCard';
 
 function Author() {
   // TODO: Set a state for books
-  const [authors, setAuthors] = useState([]);
+  const [authors, setAuthors] = useState([{
+    email: '',
+    favorite: '',
+    first_name: '',
+    last_name: '',
+    firebaseKey: '',
+  }]);
 
   // TODO: Get user ID using useAuth Hook
   const { user } = useAuth();
+  console.log('user', user.uid);
 
   // TODO: create a function that makes the API call to get all the books
   const getAllTheAuthors = () => {
@@ -20,7 +27,7 @@ function Author() {
   // TODO: make the call to the API to get all the books on component render
   useEffect(() => {
     getAllTheAuthors();
-  });
+  }, []);
 
   return (
     <div className="text-center my-4">

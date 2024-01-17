@@ -16,8 +16,7 @@ export default function AuthorCard({ authorObj, onUpdate }) {
     <>
       <Card style={{ width: '18rem', margin: '10px' }}>
         <Card.Body>
-          <Card.Name>{authorObj.first_name}</Card.Name>
-          <Card.Name>{authorObj.last_name}</Card.Name>
+          <Card.Title>{authorObj.first_name}</Card.Title>
           {/* DYNAMIC LINK TO VIEW THE BOOK DETAILS  */}
           <Link href={`/author/${authorObj.firebaseKey}`} passHref>
             <Button variant="primary" className="m-2">VIEW</Button>
@@ -38,7 +37,7 @@ export default function AuthorCard({ authorObj, onUpdate }) {
 AuthorCard.propTypes = {
   authorObj: PropTypes.shape({
     email: PropTypes.string,
-    favorite: PropTypes.bool,
+    favorite: PropTypes.string,
     first_name: PropTypes.string,
     last_name: PropTypes.string,
     firebaseKey: PropTypes.string,
